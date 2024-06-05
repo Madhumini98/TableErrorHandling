@@ -21,29 +21,5 @@ class ClientsController extends Controller
 
     }
 
-    public function index(){
-        $headers = [
-            'client',
-            'email',
-            'phone',
-            'register',
-            'payment',
-            'active_status',
-        ];
-        $dataArray= Client::all();
-        $records = $dataArray->map(function ($client) {
-            $clientData = [
-              'client' => $client->client,
-              'email' => $client->email,
-              'phone' => $client->phone,
-              'register' => $client->register,
-              'payment' => $client->payment,
-              'active_status' => $client->active_status,
-            ];
-            return $clientData;
-          })->toArray();
 
-          return view("ssadmin.clients", compact('headers', 'records'));
-        
-    }
 }
